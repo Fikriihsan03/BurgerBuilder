@@ -1,10 +1,9 @@
-import classes from "./Burger.modules.css";
+import classes from "./Burger.module.css";
 import BurgerIngredient from "./BurgerIngredient";
 
 const Burger = (props) => {
   return (
     <div className={classes.Burger}>
-      <div>halo</div>
       <BurgerIngredient type="bread-top" />
       <BurgerIngredient type="cheese" />
       <BurgerIngredient type="meat" />
