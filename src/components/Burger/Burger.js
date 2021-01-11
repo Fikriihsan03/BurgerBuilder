@@ -1,5 +1,5 @@
 import classes from "./Burger.module.css";
-import BurgerIngredient from "./BurgerIngredient";
+import BurgerIngredient from "./BurgerIngredients/BurgerIngredient";
 
 const Burger = (props) => {
   let formattedIngredient = Object.keys(props.ingredients)
