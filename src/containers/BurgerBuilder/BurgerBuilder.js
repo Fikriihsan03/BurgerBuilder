@@ -94,6 +94,7 @@ class BurgerBuilder extends React.Component {
       <Aux>
         <Modal appear={this.state.purchasing} disappear={this.cancelPurchasing}>
           <OrderSummary
+            price={this.state.totalPrice}
             ingredients={this.state.ingredients}
             continuePurchasing={this.continuePurchasing}
             cancelPurchasing={this.cancelPurchasing}
