@@ -5,7 +5,7 @@ import classes from "./Modal.module.css";
 const Modal = (props) => {
   return (
     <Aux>
-      <BackDrop show={props.appear} cancelPurchase={props.disappear} />
+      <BackDrop show={props.appear} clicked={props.disappear} />
       <div
         className={classes.Modal}
         style={{

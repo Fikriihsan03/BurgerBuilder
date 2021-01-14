@@ -4,11 +4,15 @@ import BackDrop from "../../UI/Backdrop/BackDrop";
 import NavigationItems from "../NavigationItems/NavigationItems";
 import classes from "./SideDrawer.module.css";
 
-const SideDrawer = () => {
+const SideDrawer = (props) => {
+  let attachedClasses = [classes.SideDrawer, classes.Close];
+  if (props.open) {
+    attachedClasses = [classes.SideDrawer, classes.Open];
+  }
   return (
     <Aux>
-      <BackDrop show />
-      <div className={classes.SideDrawer}>
+      <BackDrop show={props.open} clicked={props.closed} />
+      <div className={attachedClasses.join(" ")}>
         <div className={classes.Logo}>
           <Logo />
         </div>
