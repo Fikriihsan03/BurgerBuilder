@@ -11,6 +11,7 @@ const SideDrawer = (props) => {
   }
   return (
     <Aux>
+      {/* props closed dan open mengacu pada layout.js */}
       <BackDrop show={props.open} clicked={props.closed} />
       <div className={attachedClasses.join(" ")}>
         <div className={classes.Logo}>

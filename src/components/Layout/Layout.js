@@ -7,19 +7,23 @@ class Layout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showSideDrawer: true,
+      showSideDrawer: false,
     };
   }
-  sideDrawerClosedHandler = () => {
-    this.setState({ showSideDrawer: false });
+  sideDrawerTogglerHandler = () => {
+    if (this.state.showSideDrawer === false) {
+      this.setState({ showSideDrawer: true });
+    } else {
+      this.setState({ showSideDrawer: false });
+    }
   };
   render() {
     return (
       <Aux>
-        <ToolBar />
+        <ToolBar toggleSideDrawer={this.sideDrawerTogglerHandler} />
         <SideDrawer
           open={this.state.showSideDrawer}
-          closed={this.sideDrawerClosedHandler}
+          closed={this.sideDrawerTogglerHandler}
         />
         <main className={classes.Content}>{this.props.children}</main>
       </Aux>

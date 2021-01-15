@@ -5,7 +5,12 @@ import NavigationItems from "../NavigationItems/NavigationItems";
 const ToolBar = (props) => {
   return (
     <header className={classes.ToolBar}>
-      <div>MENU</div>
+      {/* tombol toggle sideDrawer yang ada saat di handphone saja, props mengacu pada layout.js*/}
+      <div onClick={props.toggleSideDrawer} className={classes.DrawerToggle}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <Logo />
       <nav className={classes.DesktopOnly}>
         <NavigationItems />
