@@ -1,5 +1,6 @@
 import Aux from "../../../hoc/Aux";
 import Button from "../../UI/Button/Button";
+import NumberFormat from "react-number-format";
 
 const OrderSummary = (props) => {
   const ingredientSummary = Object.keys(props.ingredients).map((igkey) => {
@@ -16,7 +17,15 @@ const OrderSummary = (props) => {
       <p>A delicious Burger with the following ingredients :</p>
       <ul>{ingredientSummary}</ul>
       <p>
-        <strong>Total price : {props.price} K</strong>
+        <strong>
+          <NumberFormat
+            value={props.price}
+            displayType={"text"}
+            thousandSeparator={"."}
+            decimalSeparator={","}
+            prefix={"Total : Rp."}
+          />
+        </strong>
       </p>
       <p>continue checkout ?</p>
       <Button btnType="Danger" clickedButton={props.cancelPurchasing}>

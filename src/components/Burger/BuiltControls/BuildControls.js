@@ -1,5 +1,6 @@
 import classes from "./BuildControls.module.css";
 import BuildControl from "./BuildControl/BuildControl";
+import NumberFormat from "react-number-format";
 
 const controls = [
   { label: "Salad", type: "salad" },
@@ -11,7 +12,17 @@ const controls = [
 const BuildControls = (props) => {
   return (
     <div className={classes.BuildControls}>
-      <p>{props.price}k</p>
+      <p>
+        <strong>
+          <NumberFormat
+            value={props.price}
+            displayType={"text"}
+            thousandSeparator={"."}
+            decimalSeparator={","}
+            prefix={"Rp. "}
+          />
+        </strong>
+      </p>
       {controls.map((control) => {
         return (
           <BuildControl
