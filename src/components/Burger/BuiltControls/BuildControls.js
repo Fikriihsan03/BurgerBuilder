@@ -4,9 +4,9 @@ import NumberFormat from "react-number-format";
 
 const controls = [
   { label: "Salad", type: "salad" },
-  { label: "Meat", type: "meat" },
   { label: "Bacon", type: "bacon" },
   { label: "Cheese", type: "cheese" },
+  { label: "Meat", type: "meat" },
 ];
 
 const BuildControls = (props) => {
