@@ -5,6 +5,7 @@ import BuildControls from "../../components/Burger/BuiltControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import Spinner from "../../components/UI/Spinner/Spinner";
+import CatchError from "../../hoc/Error/CatchError";
 import axios from "../../axios-orders";
 
 const INGREDIENT_PRICES = {
@@ -99,8 +100,9 @@ class BurgerBuilder extends React.Component {
       deliveryType: "express",
     };
     axios
-      .post("/orders.json", order)
+      .post("/orders", order)
       .then((res) => {
+        // console.log(res);
         this.setState({ loading: false, purchasing: false });
       })
       .catch((err) => this.setState({ loading: false, purchasing: false }));
@@ -141,4 +143,4 @@ class BurgerBuilder extends React.Component {
     );
   }
 }
-export default BurgerBuilder;
+export default CatchError(BurgerBuilder, axios);
