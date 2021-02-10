@@ -16,6 +16,7 @@ const CatchError = (WrappedComponent, axios) => {
         (res) => res,
         (error) => {
           this.setState({ error: error });
+          console.log(error);
         }
       );
     }
