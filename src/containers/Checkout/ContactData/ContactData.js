@@ -83,8 +83,10 @@ class ContactData extends React.Component {
           ],
         },
         value: "",
+        valid: true,
       },
     },
+    formIsValid: false,
     loading: false,
   };
   checkValidity(value, rules) {
@@ -115,8 +117,12 @@ class ContactData extends React.Component {
     );
     updatedFormElement.touched = true;
     updatedOrderForm[inputIdentifier] = updatedFormElement;
-    this.setState({ orderForm: updatedOrderForm });
-    console.log(updatedFormElement);
+    let formIsValid = true;
+    for (let inputIdentifier in updatedOrderForm) {
+      formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
+    }
+    console.log(formIsValid);
+    this.setState({ orderForm: updatedOrderForm, formIsValid: formIsValid });
   };
 
   orderHandler = (event) => {
@@ -167,7 +173,9 @@ class ContactData extends React.Component {
             touched={formElement.config.touched}
           />
         ))}
-        <Button btnType="Success">ORDER</Button>
+        <Button btnType="Success" disabled={!this.state.formIsValid}>
+          ORDER
+        </Button>
       </form>
     );
     if (this.state.loading) {
